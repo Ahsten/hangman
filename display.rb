@@ -9,7 +9,7 @@ module Display
 
     def display_winning_message
         <<~HEREDOC
-        
+
         #{@correct_guesses.join}
 
         Congratus you won!
@@ -43,4 +43,21 @@ module Display
         Sorry that letter is not in the word
         HEREDOC
     end
+
+    def display_turn_prompt
+        <<~HEREDOC
+            Type 'save' or 'exit' to leave the game
+            Guess a letter
+        HEREDOC
+    end
+
+    def display_play_again
+        <<~HEREDOC
+
+          Would you like to play again?
+          \e[34m[1]\e[0m yes
+          \e[34m[2]\e[0m no
+            
+        HEREDOC
+      end
 end
