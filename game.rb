@@ -29,12 +29,14 @@ class Game
         add_dashes(@word.length)
         
         until check_win == true
-            print "Make a Guess: "
+            puts display_turn_prompt
             @guess = gets.chomp.downcase
             check_guess()
             puts display_spaces(@correct_guesses.join)
             puts display_all_incorrect_guessed
         end
+
+        end_game
     end
     
     def check_guess
@@ -64,5 +66,11 @@ class Game
         word_length.times do
             @correct_guesses.push("_")
         end
+    end
+
+    def end_game
+        puts display_play_again
+        play_again = gets.chomp
+        Game.new if play_again == '1'
     end
 end
