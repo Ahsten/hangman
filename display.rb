@@ -2,7 +2,9 @@ module Display
     def instructions
         <<~HEREDOC
         Welcome to Hangman. The goal of the game is to solve the secret word by guessing letters within
-        a certain number of guesses. You are only allowed 7 incorrect guesses. Guess a letter to start
+        a certain number of guesses. You are only allowed 7 incorrect guesses. 
+
+        Type 'load' to load a saved game. Otherwise guess a letter to start playing
 
         HEREDOC
     end
@@ -46,8 +48,25 @@ module Display
 
     def display_turn_prompt
         <<~HEREDOC
+
             Type 'save' or 'exit' to leave the game
             Guess a letter
+        HEREDOC
+    end
+
+    def display_load_question
+        <<~HEREDOC
+
+        Would you like load a saved game
+        \e[34m[y]\e[0m yes
+        \e[34m[n]\e[0m no
+        HEREDOC
+    end
+
+    def display_choose_file
+        <<~HEREDOC
+
+            Please enter the filename of the game you wish to load
         HEREDOC
     end
 
@@ -57,7 +76,14 @@ module Display
           Would you like to play again?
           \e[34m[1]\e[0m yes
           \e[34m[2]\e[0m no
-            
+
         HEREDOC
-      end
+    end
+
+    def display_save_prompt
+        <<~HEREDOC
+        
+        Enter a file name:
+        HEREDOC
+    end
 end
